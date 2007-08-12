@@ -1,0 +1,7 @@
+IOI:
+  board_type_id:    1
+  name:             IOI
+
+ACM:
+  board_type_id:    2
+  name:             ACM

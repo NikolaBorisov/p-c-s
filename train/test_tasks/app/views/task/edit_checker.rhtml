@@ -1,0 +1,32 @@
+<%= start_form_tag( {:action => :edit_checker, :id=>params[:id], :checker_id=>params[:checker_id]}, { :multipart => true } )%>
+
+    <fieldset style="width:100px">
+    <legend>Edit checker</legend>
+    
+    <table cellpadding="5">
+        <tr>
+            <td  align="right"> <label for="file_input">Name:</label>  </td>
+            <td> <%= text_field("checker","name") %> </td>
+        <tr>
+        
+        <tr>
+           <td align="right"> <label for="file">Language:</label> </td>
+           <td> <%= select(:checker, :program_language_id, @program_languages) %> </td>
+           
+        </tr>
+        
+         <tr align="right">
+            <td align="right">File:</td>
+            <td> <%= file_field_tag("file") %>  </td>
+        </tr>
+        
+        <tr>
+            <td> </td>
+            <td>    <%= submit_tag("Save", {:class=>"submit"} )%>  </td>
+            
+    <table>
+               
+    </fieldset>
+    
+
+<%= end_form_tag%>

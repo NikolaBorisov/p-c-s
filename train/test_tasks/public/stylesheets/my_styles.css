@@ -1,0 +1,38 @@
+#notice {
+     border: 2px solid red;
+     padding: 1em;
+     margin-bottom: 2em;
+     background-color: #f0f0f0;
+     font: bold smaller sans-serif;
+}
+
+
+input
+{
+    color: #000000;
+    border: 1px solid #000000   
+}
+
+input.submit
+{
+    color: #000000;
+    background: #c0c5b5;
+    border: 1px solid #000000   
+}
+
+th,td.underlined
+{
+    //border-bottom: 1px solid #000000;
+    font-size:medium;
+    color: #866613
+    
+}
+
+table.view_component
+{
+    margin-top:10px;
+    font-size:small; 
+    text-align:center;
+    border-style:dotted; 
+    border-spacing:10;
+}

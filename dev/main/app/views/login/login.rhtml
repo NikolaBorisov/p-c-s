@@ -1,0 +1,19 @@
+<%= form_tag(:action => "signup") %>
+    <fieldset>
+        <legend>Login Page</legend>
+        <p>
+            <%= show_info %>
+        </p>
+        <p>
+            <label for="username">User Name:</label>
+            <%= text_field(:user, :username) %>
+        </p>
+        <p>
+            <label for="password">Password:</label>
+            <%= text_field(:user, :password) %>
+        </p>
+        <p>
+            <%= submit_tag("Login") %>
+        </p>
+    </fieldset>
+<%= end_form_tag %>

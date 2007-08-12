@@ -1,0 +1,36 @@
+<%= start_form_tag(:controller => 'privileges', :action => :add, :id => params[:id])%>
+    <fieldset style="width:200px">
+    <legend> Add Privileges </legend>
+       <%= select_tag("user_id", options_for_select(@users_for_options) )%>
+       <%= submit_tag("Add", {:class=>"submit"} ) %>
+    </fieldset>
+
+<%= end_form_tag() %>
+
+<br>
+
+<table border="1"   >
+    <tr>
+        <td> User </td>
+        
+        <% if( @is_owner )%>
+        <td> Action </td>
+        <% end %>
+        
+        
+    </tr>
+    
+    <% @task.privileged_users.each do |user| %>
+        <tr>
+            <td> <%= user.username %> </td>
+            
+             <% if( @is_owner )%>
+            <td>                        
+                <%= link_to("delete",{:controller => 'privileges', :action => :delete, :id => params[:id], :user_id => user.id},
+                                     {:confirm => "Are you sure?" } ) %>
+            </td>
+            <% end %>
+            
+        </tr>
+    <% end %>
+</talbe>

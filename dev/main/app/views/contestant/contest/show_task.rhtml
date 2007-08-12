@@ -1,0 +1,13 @@
+<h1><%= @task.title %></h1>
+<h3>Task Name:<%= @task.name %></h3>
+<% for content in @task.contents %>
+    <% has_one_content = true %>
+    <%= link_to("#{content.language.name}", :action => 'show_task', :task_id => @task.id, :language_id => content.language.id) %>
+<% end %>
+<h3>Restrictions</h3>
+Runtime Limit :<%= @restriction.runtime %><br />
+Memory Limit :<%= @restriction.memory %><br />
+Source Code Size Limit :<%= @restriction.source_code %><br />
+Output Size Limit :<%= @restriction.output_size %><br />
+
+<%= @content_text %>

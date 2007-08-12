@@ -1,0 +1,21 @@
+<h1><%= "Test" %></h1>
+<% if @flash[:notice] -%>
+  <div id="notice"><%= @flash[:notice] %></div>
+<% end -%>
+<%= start_form_tag :action => 'create_test' %>
+    <p><label for="test_grader_id">Grader ID:</label><br/>
+    <%= text_field('test','grader_id') %></p>
+    <p><label for="test_problem_id">Problem ID:</label><br/>
+    <%= text_field('test','problem_id') %></p>
+    <p><label for="test_submit_id">Submit ID:</label><br/>
+    <%= text_field('test','submit_id') %></p>
+    <p><label for="test_test_id">Test ID:</label><br/>
+    <%= text_field('test','test_id') %></p>
+    <p><label for="test_checker_id">Checker ID:</label><br/>
+    <%= text_field('test','checker_id') %></p>
+    <p><label for="test_module_id">Module ID:</label><br/>
+    <%= text_field('test','module_id') %></p>
+  <%= submit_tag "Test" %>
+<%= end_form_tag %>
+
+<%= link_to 'Back', :action => 'index' %>

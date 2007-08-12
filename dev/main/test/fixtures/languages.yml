@@ -1,0 +1,10 @@
+english:
+  language_id:      1
+  name:             English
+  code:             EN
+
+bulgarian:
+  language_id:      2
+  name:             Bulgarian
+  code:             BG
+ 

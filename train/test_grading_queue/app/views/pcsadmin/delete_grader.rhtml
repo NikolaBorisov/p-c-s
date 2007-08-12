@@ -1,0 +1,11 @@
+<h1><%= "Delete Grader" %></h1>
+<% if @flash[:notice] -%>
+  <div id="notice"><%= @flash[:notice] %></div>
+<% end -%>
+<%= start_form_tag :action => 'remove_grader' %>
+    <p><label for="grader_id">Grader_ID:</label><br/>
+    <%= text_field('grader','id') %></p>
+  <%= submit_tag "Remove Grader" %>
+<%= end_form_tag %>
+
+<%= link_to 'Back', :action => 'index' %>

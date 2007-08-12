@@ -1,0 +1,99 @@
+<% for grader_response in @grader_responses %>
+    <table>    
+        <tr>
+            <td>ID:</td>
+            <td><%= grader_response.id %></td>
+        </tr>
+        <tr>
+            <td>Message:</td>
+            <td><%= grader_response.message %></td>
+        </tr>
+        <tr>
+            <td>Solution Compiler Response</td>
+        </tr>
+        <tr>
+            <td>ID:</td>
+            <td><%= grader_response.solution_compiler_response.id %></td>
+        </tr>
+        <tr>
+            <td>Message:</td>
+            <td><%= grader_response.solution_compiler_response.message %></td>
+        </tr>
+        <tr>
+            <td>Compiler Output:</td>
+            <td><%= grader_response.solution_compiler_response.compiler_output %></td>
+        </tr>
+        <tr>
+            <td>User Time:</td>
+            <td><%= grader_response.solution_compiler_response.user_time %></td>
+        </tr>
+        <tr>
+            <td>System Time:</td>
+            <td><%= grader_response.solution_compiler_response.system_time %></td>
+        </tr>
+        <tr>
+            <td>Exit Status:</td>
+            <td><%= grader_response.solution_compiler_response.exit_status %></td>
+        </tr>
+        <tr>
+            <td>Checker Compiler Response</td>
+        </tr>
+        <tr>
+            <td>ID:</td>
+            <td><%= grader_response.checker_compiler_response.id %></td>
+        </tr>
+        <tr>
+            <td>Message:</td>
+            <td><%= grader_response.checker_compiler_response.message %></td>
+        </tr>
+        <tr>
+            <td>Compiler Output:</td>
+            <td><%= grader_response.checker_compiler_response.compiler_output %></td>
+        </tr>
+        <tr>
+            <td>User Time:</td>
+            <td><%= grader_response.checker_compiler_response.user_time %></td>
+        </tr>
+        <tr>
+            <td>System Time:</td>
+            <td><%= grader_response.checker_compiler_response.system_time %></td>
+        </tr>
+        <tr>
+            <td>Exit Status:</td>
+            <td><%= grader_response.checker_compiler_response.exit_status %></td>
+        </tr>
+        
+    </table>
+    <table>
+        <tr>
+            <td>Test #</td>
+            <td>Run Message</td>
+            <td>Run Status</td>
+            <td>User Time</td>
+            <td>System Time</td>
+            <td>Exit Status</td>
+            <td>Term SIG</td>
+            <td>Checker Message</td>
+            <td>Checker User Time</td>
+            <td>Checker System Time</td>
+            <td>Checker Exit Status</td>
+            <td>Correctness</td>
+        </tr>        
+        <% for test_response in grader_response.test_responses %>
+            <tr>
+                <td><%= test_response.test_id %></td>
+                <td><%= test_response.message %></td>
+                <td><%= test_response.status %></td>
+                <td><%= test_response.user_time %></td>
+                <td><%= test_response.system_time %></td>
+                <td><%= test_response.exit_status %></td>
+                <td><%= test_response.term_sig %></td>
+                <td><%= test_response.checker_response.message %></td>
+                <td><%= test_response.checker_response.user_time %></td>
+                <td><%= test_response.checker_response.system_time %></td>
+                <td><%= test_response.checker_response.exit_status %></td>
+                <td><%= test_response.checker_response.correctness %></td>
+            </tr>
+        <% end %>
+    </table>
+<% end %>

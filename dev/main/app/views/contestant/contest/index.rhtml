@@ -1,0 +1,5 @@
+<h1><%= @contest.title %></h1>
+<%= show_info %>
+<%= link_to("Submit", :action => 'submit', :id => @contest.id) %><br />
+<%= link_to("Tasks", :action => 'list_tasks', :id => @contest.id) %><br />
+<%= link_to("Submits", :action => 'list_submits', :id => @contest.id) %><br />

@@ -1,0 +1,13 @@
+<h1><%= "Add Grader" %></h1>
+<% if @flash[:notice] -%>
+  <div id="notice"><%= @flash[:notice] %></div>
+<% end -%>
+<%= start_form_tag :action => 'create_grader' %>
+    <p><label for="grader_address">Address:</label><br/>
+    <%= text_field('grader','address') %></p>
+    <p><label for="grader_port">Port:</label><br/>
+    <%= text_field('grader','port') %></p> 
+  <%= submit_tag "Add" %>
+<%= end_form_tag %>
+
+<%= link_to 'Back', :action => 'index' %>

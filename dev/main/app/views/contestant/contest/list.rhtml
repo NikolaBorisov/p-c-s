@@ -1,0 +1,3 @@
+<% for contest in @allowed_contests%>
+    <%= link_to("#{contest.title}", :action => 'index', :id => contest.id) %><br />
+<% end %>

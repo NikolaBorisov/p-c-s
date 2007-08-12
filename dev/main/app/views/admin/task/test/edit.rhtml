@@ -1,0 +1,20 @@
+ <%= form_tag( { :action => :edit, :id => params[:id] }, { :multipart => true } )%>
+    
+    <fieldset style="width:100px">
+    <legend>Test <%=@test_number%></legend>
+    
+        <label for="file_input">Input</label> </br>
+        <%= file_field_tag("file_inp") %>
+    
+        <p> </p>
+        
+        <label for="file">Output</label> </br>
+        <%= file_field_tag("file_out") %>
+    
+        <p> </p>
+        
+        <%= submit_tag("Save") %>            
+    
+    </fieldset>
+    
+  <%= end_form_tag %>

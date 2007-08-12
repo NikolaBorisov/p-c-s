@@ -1,0 +1,9 @@
+<h1><%= "Product Listing" %></h1>
+<% if @flash[:notice] -%>
+  <div id="notice"><%= @flash[:notice] %></div>
+  <% end -%>
+<%= link_to 'Add Grader', :action => 'add_grader' %><br />
+<%= link_to 'Delete Grader', :action => 'delete_grader' %><br />
+<%= link_to 'Test', :action => 'test' %><br />
+<%= link_to 'Get All Grader', :action => 'get_graders' %><br />
+<%= link_to 'View Grader Responses', :action => 'view_responce' %>

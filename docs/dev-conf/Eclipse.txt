@@ -1,0 +1,11 @@
+Subclipse
+http://subclipse.tigris.org/update_1.0.x
+http://subclipse.tigris.org/
+
+RDT
+http://updatesite.rubypeople.org/release
+http://rubyeclipse.sourceforge.net/download.rdt.html
+
+RadRails
+http://radrails.sourceforge.net/update
+http://www.radrails.org/

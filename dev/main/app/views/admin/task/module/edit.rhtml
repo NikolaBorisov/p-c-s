@@ -1,0 +1,25 @@
+<%= start_form_tag( {:controller => 'module', :action => :edit, :id=>params[:id], :module_id=>params[:module_id]}, { :multipart => true } )%>
+
+
+<!---Form for loading module files --->
+    <fieldset  style="width:400px">
+    <legend>Edit module</legend>
+        <label for="name">Name</label> <br>
+        <%= text_field(:mod, :name, :size => 32) %>     
+        
+        <p> </p>
+        
+        <label for="module_file">Module File</label>
+        <%= file_field_tag("file_module") %>
+        
+        <p> </p>        
+        
+        <label for="header_file">Header File</label>
+        <%= file_field_tag("file_header") %>
+        
+        <p> </p>
+        <%= submit_tag("Save", {:class=>"submit"} )%>
+    </fieldset>
+</table>
+
+<%= end_form_tag%>

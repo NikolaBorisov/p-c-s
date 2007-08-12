@@ -1,0 +1,18 @@
+<%= start_form_tag( :action => :edit_task_content, :id => params[:id], :task_content_id => params[:task_content_id]) %>
+    <table>
+        <tr>
+            <td> Language: </td>
+            <td> <%= select(:task_content, :language_id, @languages) %> </td>
+        <tr>
+        
+        <tr>
+            <td> Content: </td>
+            <td> <%= text_area(:task_content, :content, :cols=>80, :rows=>24 ) %>
+        </tr>
+        
+        <tr>
+            <td> </td>
+            <td> <%= submit_tag("Save", {:class=>"submit"}) %>
+        </tr>
+    <table>
+<%= end_form_tag() %>

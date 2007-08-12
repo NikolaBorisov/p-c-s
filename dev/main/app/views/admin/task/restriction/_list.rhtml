@@ -1,0 +1,31 @@
+<%= link_to("Add", :controller => 'restriction', :action => :edit, :id => params[:id] ) %>
+
+<table border="1" cellspacing="5">
+<tr>
+    <td>Name</td>
+    <td>Runtime</td>
+    <td>Memory</td>    
+    <td>Stack Size</td>        
+    <td>Source Code</td>        
+    <td>Output Size</td>        
+    <td>Compilation Time</td>  
+    <td>Action </td>      
+</tr>
+
+<% @task.restrictions.each do |restriction| %>
+    <tr align="center">
+        <td> </td>
+        <td> <%= restriction.runtime %></td>
+        <td> <%= restriction.memory %></td>    
+        <td> <%= restriction.stack_size %></td>    
+        <td> <%= restriction.source_code %></td>    
+        <td> <%= restriction.output_size %></td>    
+        <td> <%= restriction.compilation_time %></td>
+        <td>
+            <%=link_to("edit", :controller => 'restriction', :action => :edit, :id => params[:id], :restriction_id => restriction.id) %> /
+            <%=link_to("delete",{:controller => 'restriction', :action => :delete, :id => restriction.id},
+                                {:confirm => "Are you sure?"}) %>
+        </td>
+    </tr>    
+<% end %>
+</table>

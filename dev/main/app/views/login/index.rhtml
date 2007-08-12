@@ -1,0 +1,5 @@
+<% for role in @roles %>
+    <% if (session[role.name.to_sym] == true) %>
+        <%= link_to("#{role.name.capitalize} interface", :action => role.name) %><br />
+    <% end %>
+<% end %>

@@ -1,0 +1,50 @@
+<%= error_messages_for("task") %>
+
+<p> <%= link_to("Back", :action => :list) %> </p>
+
+<%= start_form_tag( :action => :save) %>
+
+<fieldset style="width:200px">
+<legend> Edit task </legend>
+    <label for="title"> Title </label> <br/>
+    <%= text_field("task", "title", "size" => 32) %> <br/>
+    
+    <label for="name"> Name </label> <br/>
+    <%= text_field("task", "name", "size" => 32) %> <br/>
+    
+    <label for="task_type"> Type </label> <br/>
+    <%= text_field("task", "task_type", "size" => 3) %> <br/>
+    
+    <label for="difficulty"> Difficulty </label> <br/>
+    <%= text_field("task", "difficulty", "size" => 3) %> <br/>
+    
+    <%= submit_tag( "Save", {:class=>"submit"} ) %>
+    
+
+    <%= hidden_field("task", "id" ) %>
+
+</fieldset>
+<%= end_form_tag %>
+
+<!-- Do this if only we have exicting task object in the database -->
+<% if( @task.id ) -%>
+    <table cellspacing="10">
+        <tr>
+            <td> <%= link_to('Tests', :action => :edit, :id => params[:id], :view => 1) %> </td>
+            <td> <%= link_to('Modules', :action => :edit, :id => params[:id], :view => 2) %> </td>
+            <td> <%= link_to('Checkers', :action => :edit, :id => params[:id], :view => 3) %> </td>
+            <td> <%= link_to('Contents', :action => :edit, :id => params[:id], :view => 4) %> </td>
+            <td> <%= link_to('Restrictions', :action => :edit, :id => params[:id], :view => 5) %> </td>
+            <td> <%= link_to('Privileges', :action => :edit, :id => params[:id], :view => 6) %> </td>            
+        </tr>
+    <table>
+    
+    <hr>
+    
+    <%if( @view_component )%>  
+            <%= render (:partial => @view_component ) %>
+    <%end%>
+        
+  
+<% end -%>
+

@@ -1,0 +1,79 @@
+<table>
+    <tr>
+        <td>Action</td>
+        <td>Module</td>
+        <td>Program Language</td>
+    </tr>
+    <% for contest_module in @contests_modules %>
+        <tr>
+            <td><%= @actions[contest_module.action-1][0] %></td>
+            <td><%= contest_module.modul.name %></td>
+            <td><%= contest_module.program_language.name %></td>
+            <td>
+                <%= link_to('delete', :controller => "contest_module", :action => 'delete', 
+                :id => params[:id], :task_id => params[:task_id], :contest_module_id => contest_module.id) %>
+            </td>
+        </tr>
+    <% end %>
+</table>
+<%= link_to('Add Module Action', :controller => "contest_module", :action => 'add', 
+:id => params[:id], :task_id => params[:task_id]) %>
+<br />
+<table>
+    <tr>
+        <td>Action</td>
+        <td>Checker</td>
+    </tr>
+    <% for contest_checker in @contests_checkers %>
+        <tr>
+            <td><%= @actions[contest_checker.action-1][0] %></td>
+            <td><%= contest_checker.checker.name %></td>
+            <td>
+                <%= link_to('delete', :controller => "contest_checker", :action => 'delete', 
+                :id => params[:id], :task_id => params[:task_id], :contest_checker_id => contest_checker.id) %>
+            </td>
+        </tr>
+    <% end %>
+</table>
+<%= link_to('Add Checker Action', :controller => "contest_checker", :action => 'add', 
+:id => params[:id], :task_id => params[:task_id]) %>
+
+<table>
+    <tr>
+        <td>Restriction Name</td>
+        <td>Runtime</td>
+        <td>Memory</td>
+        <td>Source Size</td>
+        <td>Output Size</td>
+        <td>Compile Runtime</td>
+    </tr>
+    <tr>
+        <% restriction = @contest_task.restriction %>
+        <td><%= restriction.id %></td>
+        <td><%= restriction.runtime %></td>
+        <td><%= restriction.memory %></td>
+        <td><%= restriction.source_code %></td>
+        <td><%= restriction.output_size %></td>
+        <td><%= restriction.compilation_time %></td>
+    </tr>
+</table>
+
+<%= form_tag(:action => "change_restriction", :id => params[:id], :task_id => params[:task_id]) %>
+<fieldset>
+    <legend>Change Task Restriction</legend>
+    <p>
+        <%= error_messages_for(:contest_task) %>
+    </p>
+    <p>
+        <%= show_info %>
+    </p>
+    <p>
+        <label for="contest_task">Select New Restriction</label>
+        <%= select(:contest_task, :restriction_id, @task.restrictions.collect { |r| [r.id, r.id] } ) %>
+    </p>
+    <p>
+        <%= submit_tag "Change Restriction" %>
+    </p>
+</fieldset>
+<%= end_form_tag %>
+

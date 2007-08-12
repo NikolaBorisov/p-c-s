@@ -1,0 +1,17 @@
+<table>
+    <tr>
+        <td>Task</td>
+        <td>File</td>
+        <td>Time</td>
+        <td>Result</td>
+    </tr>
+    <% for submit in @submits %>
+        <tr>
+            <td><%= submit.task.title %></td>
+            <td><%= submit.file.name %></td>
+            <td><%= submit.submit_at %></td>
+            <td><%= link_to("view grader responses", :action => 'list_submit_responses', 
+                :id => submit.contest_id, :submit_id => submit.id) %></td>
+        </tr>
+    <% end %>
+</table>

@@ -1,0 +1,8 @@
+IOI:
+  contest_type_id:      1
+  name:                 IOI
+
+ACM:
+  contest_type_id:      2
+  name:                 ACM
+  
