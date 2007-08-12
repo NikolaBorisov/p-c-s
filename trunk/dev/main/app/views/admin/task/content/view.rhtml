@@ -1,0 +1,9 @@
+
+
+<%= link_to("Back", :controller => 'task', :action => :edit, :id => params[:id], :view => 4)%>
+<%= link_to("Edit", :controller => 'content', :action => :edit, :id => params[:id], :task_content_id => params[:task_content_id])%>
+<br>
+<center> <b><%= @task_content.language.name %> </b> content for <b> <%= @task_content.task.name%> </b> </center>
+<hr>
+<%= @task_content.content %>
+<hr>

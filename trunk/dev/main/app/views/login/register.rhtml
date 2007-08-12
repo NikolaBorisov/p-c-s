@@ -1,0 +1,61 @@
+<% @page_title = "Register User" %>
+
+<%= form_tag %>
+<fieldset>
+    <legend>Registration Form</legend>
+    
+    <%= error_messages_for 'user' %>
+    <p>
+        <label for="first_name">First name:</label>
+        <%= text_field("user", "first_name") %>
+    </p>
+    <p>
+        <label for="last_name">Last name:</label>
+        <%= text_field("user", "last_name") %>
+        <br />
+    </p>
+    <p>
+        <label for="username">Username:</label>
+        <%= text_field("user", "username") %>
+        <br />
+    </p>
+    <p>
+        <label for="password">Password:</label>
+        <%= password_field("user", "text_password") %>
+        <br />
+    </p>
+    <p>
+        <label for="password_confirmation">Password confirmation:</label>
+        <%= password_field("user", "text_password_confirmation") %>
+        <br />
+    </p>
+    <p>
+        <label for="country">Country:</label>
+        <%= select("user", "country_id", PCS::Model::Country.find(:all).collect { |c| [c.name, c.id] } ) %>
+        <br />
+    </p>
+    <p>
+        <label for="city">City:</label>
+        <%= text_field("user", "city") %>
+        <br />
+    </p>
+    <p>
+        <label for="address">Address:</label>
+        <%= text_field("user", "address") %>
+        <br />
+    </p>
+    <p>
+        <label for="school">School:</label>
+        <%= text_field("user", "school") %>
+        <br />
+    </p>
+    <p>
+        <label for="email">E-mail:</label>
+        <%= text_field("user", "email") %>
+        <br />
+    </p>    
+    <p>
+        <input class="submit-button" type="submit" value="REGISTER" />
+    </p>
+</fieldset>
+<%= end_form_tag %>    

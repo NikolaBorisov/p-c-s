@@ -1,0 +1,23 @@
+<%= form_tag(:id => params[:id]) %>
+<fieldset>
+    <legend>Add Task To Contest</legend>
+    <p>
+        <%= error_messages_for(:contest_task) %>
+    </p>
+    <p>
+        <%= show_info %>
+    </p>
+    <p>
+        <label for="task">Select Task</label>
+        <%= select(:contest_task, :task_id, @tasks.collect { |t| [t.name, t.id] } ) %>
+    </p>
+    <p>
+        <label for="task">Task Number</label>
+        <%= text_field(:contest_task, :number) %>
+    </p>
+    <p>
+        <%= hidden_field(:contest_task, :contest_id, :value => params[:id]) %>
+        <%= submit_tag "Add Task" %>
+    </p>
+</fieldset>
+<%= end_form_tag %>

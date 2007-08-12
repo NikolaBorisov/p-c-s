@@ -1,0 +1,39 @@
+ <%= form_tag( { :action => :edit_restriction, :id => params[:id], :restriction_id => params[:restriction_id] }) %>
+    
+    <fieldset style="width:100px">
+    <legend> Edit restriction</legend>
+    
+        <label for="runtime">Runtime</label> </br>
+        <%= text_field(:restriction, :runtime) %>
+            
+        <p> </p>
+        
+        <label for="memory">Memory</label> </br>
+        <%= text_field(:restriction, :memory) %>
+    
+        <p> </p>
+        
+        <label for="stack_size">Stack size</label> </br>
+        <%= text_field(:restriction, :stack_size) %>
+    
+        <p> </p>
+    
+        <label for="source_code">Source code</label> </br>
+        <%= text_field(:restriction, :source_code) %>
+    
+        <p> </p>
+        
+        <label for="outpit_size">Output size</label> </br>
+        <%= text_field(:restriction, :output_size) %>
+    
+        <p> </p>
+        
+        <label for="compilation_time">Compilation time</label> </br>
+        <%= text_field(:restriction, :compilation_time) %>
+    
+        <p> </p>
+        <%= submit_tag("Save") %>            
+    
+    </fieldset>
+    
+  <%= end_form_tag %>

@@ -1,0 +1,24 @@
+<%= form_tag(:id => params[:id], :task_id => params[:task_id]) %>
+<fieldset>
+    <legend>Add Task Checker Action</legend>
+    <p>
+        <%= error_messages_for(:contest_checker) %>
+    </p>
+    <p>
+        <%= show_info %>
+    </p>
+    <p>
+        <label for="contest_checker">Select Checker</label>
+        <%= select(:contest_checker, :checker_id, @task.checkers.collect { |m| [m.name, m.id] } ) %>
+    </p>
+    <p>
+        <label for="contest_checker">Select Action</label>
+        <%= select(:contest_checker, :action, @actions) %>
+    </p>
+    <p>
+        <%= hidden_field(:contest_checker, :contest_id, :value => params[:id]) %>
+        <%= hidden_field(:contest_checker, :task_id, :value => params[:task_id]) %>
+        <%= submit_tag "Add Task Checker Action" %>
+    </p>
+</fieldset>
+<%= end_form_tag %>

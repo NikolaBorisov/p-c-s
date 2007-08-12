@@ -1,0 +1,27 @@
+<%= link_to("Add", :action => :edit_checker, :id => params[:id], :checker_id => nil) %>
+
+<table class="view_component">   
+    <tr>
+        <th> Name </th>
+        <th> File </th>
+        <th> Language </th>
+        <th> Action </th>
+    </tr>
+
+    <% @task.checkers.each do |checker|%>
+    
+    <% file = nil%>       
+    
+    <tr>            
+        <td> <%= checker.name %>  </td>
+        <td> <%= (checker.file) ? checker.file.name : "No File"%>  </td>
+        <td> <%= checker.program_language.name %> </td>
+        <td>    
+             <%= link_to("edit", :action => :edit_checker, :id => @task.id, :checker_id => checker.id) %> /                              
+             <%= link_to("delete", {:action => :del_checker, :id => checker.id}, {:confirm=>"Are you sure?"} ) %>            
+        </td>
+    </tr>
+    
+    <% end %>
+
+</table>

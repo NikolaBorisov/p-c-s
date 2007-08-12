@@ -1,0 +1,43 @@
+
+<!---Add new test form --->    
+    <%= start_form_tag( :action => :add_test, :id => params[:id] ) %>         
+        <FIELDSET  style="width:100px">
+            <legend style="font-size:small">Add test</legend> 
+            <%= text_field_tag("number", @next_test , :size => '2') %>        
+            <%= submit_tag("Add" , {:class=>"submit"} ) %>               
+        </FIELDSET>  
+    <%= end_form_tag %>
+    
+<!---Show all the tests --->
+<table border="1" cellpadding="5">   
+    <tr>
+        <th> Test# </th>
+        <th> Input </th>
+        <th> Output </th>
+        <th> Action </th>
+    </tr>
+
+    <% @task.tests.each do |test|%>
+    
+    <% file_inp = file_out = nil%>
+    
+    <% test.tests_files.each do |file| %>
+        <% if( file.test_type == PCS::FileDescription::INPUT ) %>
+            <% file_inp = file %>
+        <% else %>
+            <% file_out = file %>
+        <% end %>
+    <% end %>
+    
+        <tr align="center">            
+            <td style="font-weight:bold">  <%= test.number %>  </td>
+            <td> <%= (file_inp) ? file_inp.file.name : "No File"%>  </td>
+            <td> <%= (file_out) ? file_out.file.name : "No File"%>  </td>
+            <td>    
+                <%= link_to("edit", :action => :edit_test, :id => test.id) %>                              
+                <%= link_to("delete", {:action => :del_test, :id => test.id}, {:confirm=>"Are you sure?"} ) %>            
+            </td>
+        </tr>
+    <% end %>
+
+</table>

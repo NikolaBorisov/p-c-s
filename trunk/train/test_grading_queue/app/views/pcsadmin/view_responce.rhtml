@@ -1,0 +1,64 @@
+<table border='1'>
+    <tr>
+        <td>
+            ID
+        </td>
+        <td>
+            Submit ID
+        </td>
+        <td>
+            Checker ID
+        </td>
+        <td>
+            Module ID
+        </td>
+        <td>
+            Grading Status
+        </td>
+        <td>
+            Checker Compiler Status
+        </td>
+        <td>
+            Solution Compiler Status
+        </td>
+        <td>
+            Run Correctly?
+        </td>
+    </tr>
+    <% for response in @grader_responses_list%>
+        <tr>
+            <td>
+                <%= response.grader_response_id %>
+            </td>            
+            <td>
+                <%= response.submit_id %>
+            </td>
+            <td>
+                <%= response.checker_id%>
+            </td>
+            <td>
+                <%= response.modul.module_id %>
+            </td>
+            <td>
+                <%= response.status %>
+            </td>
+            <td>
+                <%= response.checker_compiler_response.message %>
+            </td>
+            <td>
+                <%= response.solution_compiler_response.message %>
+            </td>
+            <% for test_response in response.test_responses %>
+                <td>
+                    <%= test_response.test.test_id%>
+                </td>
+                <td>
+                    <%= test_response.message%>
+                </td>
+                <td>
+                    <%= test_response.checker_response.correctness%>
+                </td>
+            <% end %>
+        </tr>
+    <% end %>
+</table>

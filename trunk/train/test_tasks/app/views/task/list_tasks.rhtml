@@ -1,0 +1,33 @@
+You have privileges on <%= @tasks.size() %> tasks: 
+
+<p> </p>
+
+<table border="1" cellpadding="5" >
+    <tr>
+        <th> Title </th>
+        <th> Name </th>        
+        <th> Owner </th>
+        <th> Difficulty </th>
+        <th> Action </th>
+    </tr>
+    <% @tasks.each do |task| %>
+    <% owner = PCS::Model::User.find(task.owner_id).username %>
+        <tr align="center" valign="middle">
+            <td rowspan="2" > <%= task.title %> </td>
+            <td rowspan="2"> <%= task.name %> </td>            
+            <td rowspan="2"> <%= owner %> </td>            
+            <td rowspan="2"> <%= task.difficulty %> </td>            
+            <td> 
+                <span style="font-size: small" >
+                    <%= link_to("edit", :action => :edit_task, :id => task.id) %> <br>
+                    <%= link_to("delete", :action => :delete_task, :id => task.id) %>
+                <span>
+            </td>
+        <tr>        
+
+    <% end %>
+<table>
+
+
+
+<%= link_to("Add Task", :action => :edit_task, :id => nil, :view => nil ) %>

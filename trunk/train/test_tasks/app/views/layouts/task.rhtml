@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <title> <%= @page_title ||  "Task Controller"%>
+    
+    <%= stylesheet_link_tag("my_styles", :media => "all") %>
+    
+</head>
+
+<body>
+
+<% if( flash[:notice] ) -%>
+<div id="notice"> <%= flash[:notice] %> </div>
+<% end -%>
+
+<%= @content_for_layout %>
+</body>
+
+</html>

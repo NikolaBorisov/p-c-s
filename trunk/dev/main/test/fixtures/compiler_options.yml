@@ -1,0 +1,12 @@
+C_plus_plus:
+  compiler_option_id:    1
+  program_language_id:   1
+  command_line:          "g++ -O2 -static -I#INCLUDE_PATH# -o #DESTINATION# #SOURCES#"
+  time_limit:            10000
+  
+C:
+  compiler_option_id:    2
+  program_language_id:   2
+  command_line:          "gcc -O2 -static -I#INCLUDE_PATH# -o #DESTINATION# #SOURCES#"
+  time_limit:            10000
+  

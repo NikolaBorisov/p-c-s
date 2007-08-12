@@ -1,0 +1,40 @@
+<!---Add new module form ---> 
+<%= link_to("Add", :action => :edit_module, :id => params[:id], :module_id => nil) %>
+
+<!---Show all the module --->
+<table class="view_component">
+  <tr>
+     <th> Module </th>
+     <th> File </th>
+     <th> Type </th>     
+     <th> Action </th>
+  </tr>
+   
+  <% @task.modules.each do |mod|%>    
+        <tr>
+            <td style="text-transform:uppercase;font-weight:bold"><%= mod.name %> </td>
+            <td></td>
+            <td></td>
+            <td>
+                <%= link_to("add file", :action => :edit_module, :id => params[:id], :module_id => mod.id) %> /
+                <%= link_to("delete", {:action => :del_module, :id => mod.id, :module_file_id => nil}, {:confirm=>"Are you sure?"}) %>
+            </td>            
+        </tr>
+        
+        <% mod.modules_files.each do |module_file|%>
+        <tr>
+            <td> ---//--- </td>
+            <td  style="text-align:left"> <%= module_file.file.name %> </td>
+            <td > 
+                <%= (module_file.module_type==PCS::FileDescription::MODULE)?"Module":"Header" %>
+            </td>
+            <td>
+                <%= link_to("delete", {:action => :del_module, :id => mod.id, :module_file_id => module_file.id}, {:confirm=>"Are you sure?"}) %>
+            </td>
+        </tr>
+        <% end %>
+        
+
+    
+  <% end %>
+</table>

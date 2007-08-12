@@ -1,0 +1,22 @@
+<%= link_to("Add", :action => :edit_task_content, :id => params[:id], :content_id => nil) %>
+
+<table border="1" cellpadding="5">   
+    <tr>
+        <th> Language </th>
+        <th> Action </th>
+    </tr>
+
+    <% @task.contents.each do |task_content|%>    
+    
+    <tr align="center">            
+        <td> <%= task_content.language.name %>  </td>
+        <td>    
+             <%= link_to("view", :action => :view_task_content, :id => @task.id, :task_content_id => task_content.id) %> /                              
+             <%= link_to("edit", :action => :edit_task_content, :id => @task.id, :task_content_id => task_content.id) %> /                              
+             <%= link_to("delete", {:action => :del_task_content, :id => task_content.id}, {:confirm=>"Are you sure?"} ) %>            
+        </td>
+    </tr>
+    
+    <% end %>
+
+</table>

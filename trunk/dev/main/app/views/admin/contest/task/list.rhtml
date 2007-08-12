@@ -1,0 +1,24 @@
+<table>
+    <tr>
+        <td>Number</td>
+        <td>Task ID</td>
+        <td>Name</td>
+        <td>Title</td>
+    </tr>
+<% for contest_task in @contest.contests_tasks %>
+    <% task = contest_task.task%>
+    <tr>
+        <td><%= contest_task.number %></td>
+        <td><%= task.id %></td>
+        <td><%= task.name %></td>
+        <td><%= task.title %></td>
+        <td>
+            <%= link_to('options', :controller => "task", :action => 'edit', :id => @contest.id, :task_id => task.id) %>
+        </td>
+        <td>
+            <%= link_to('delete', :controller => "task", :action => 'delete', :id => @contest.id, :contest_task_id => contest_task.id) %>
+        </td>
+    </tr>
+<% end %>
+</table>
+<%= link_to('Add Task', :controller => "task", :action => 'add', :id => @contest.id) %>

@@ -1,0 +1,12 @@
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Status</td>
+    </tr>
+    <% for grader_response in @grader_responses %>
+        <tr>
+            <td><%= grader_response.id%></td>
+            <td><%= PCS::Model::GraderResponse::STATUS[grader_response.status] %></td>
+        </tr>
+    <% end %>
+</table>

@@ -1,0 +1,19 @@
+<%= form_tag(:action => "add_grader") %>
+<fieldset>
+    <legend>Submit Solution</legend>
+    <p>
+        <%= show_info %>
+    </p>
+    <p>
+        <label for="task">Grader Address:</label>
+        <%= text_field(:grader,:address) %>
+    </p>
+    <p>
+        <label for="task">Grader Port:</label>
+        <%= text_field(:grader,:port) %>
+    </p>
+    <p>
+        <%= submit_tag "Add Grader" %>
+    </p>     
+</fieldset>
+<%= end_form_tag %>

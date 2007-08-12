@@ -1,0 +1,15 @@
+<h1><%= "Graders" %></h1>
+<% if @flash[:notice] -%>
+  <div id="notice"><%= @flash[:notice] %></div>
+<% end -%>
+<table>
+    <tr>
+        <td>Grader_id</td>
+    </tr>
+<% for grader_id in @grader_ids%>
+    <tr>
+        <td><%= grader_id %></td>
+    </tr>    
+<% end%>
+</table>
+<%= link_to 'Back', :action => 'index' %>

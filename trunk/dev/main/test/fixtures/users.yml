@@ -1,0 +1,23 @@
+  <% require 'digest/sha1' %>
+admin_user:
+  user_id:     1
+  username:    admin
+  password:    <%= Digest::SHA1.hexdigest("admin") %>
+  first_name:  Vasil
+  last_name:   Lyutskanov
+  country_id:  1
+  email:       equinox@baco.com
+  city:        Sofia
+  address:     Na blizo
+  telephone:   666
+  school:      FMI
+  
+contestant_user:
+  user_id:     2
+  username:    cont
+  password:    <%= Digest::SHA1.hexdigest("cont") %>
+  first_name:  Ivan
+  last_name:   Lyutskanov
+  country_id:  1
+  email:       ivan.l@gmail.com
+  

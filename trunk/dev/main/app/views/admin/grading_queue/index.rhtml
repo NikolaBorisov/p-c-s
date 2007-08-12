@@ -1,0 +1,19 @@
+<%= link_to('Start', :action => 'start') %><br />
+<%= link_to('Stop', :action => 'stop') %><br />
+<%= link_to('Restart', :action => 'restart') %><br />
+
+<table border='1'>
+    <tr>
+        <td>Grader ID</td>
+        <td>Info</td>
+        <td></td>
+    </tr>
+    <% for grader_id in @graders_ids %>
+        <tr>
+            <td><%= grader_id %></td>
+            <td></td>
+            <td><%= link_to('Delete', :action => 'delete_grader', :id => grader_id) %><br />
+        </tr>
+    <% end %>
+</table>
+<%= link_to('Add Grader', :action => 'add_grader') %><br />

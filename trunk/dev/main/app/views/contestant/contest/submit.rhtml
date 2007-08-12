@@ -1,0 +1,23 @@
+<%= form_tag({:action => "process_submit", :id => params[:id]}, :multipart => true )%>
+<fieldset>
+    <legend>Submit Solution</legend>
+    <p>
+        <%= show_info %>
+    </p>
+    <p>
+        <label for="task">Select Task:</label>
+        <%= select("submit", "task_id", @contest.tasks.collect { |task| [task.title, task.task_id] })%>
+    </p>
+    <p>
+        <label for="program_language">Select Language:</label>
+        <%= select("submit", "program_language_id", PCS::Model::ProgramLanguage.find_all.collect { |l| [l.name, l.program_language_id] })%>
+    </p>
+    <p>
+        <label for="username">Select File:</label>
+        <%= file_field("submit", "file") %>
+    </p>
+    <p>
+        <%= submit_tag("Submit") %>
+    </p>
+</fieldset>
+<%= end_form_tag %>

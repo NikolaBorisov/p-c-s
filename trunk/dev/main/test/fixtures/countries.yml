@@ -1,0 +1,8 @@
+bulgaria:
+  country_id:  1
+  name:        Bulgaria
+  code:        BG
+france:
+  country_id:  2
+  name:        France
+  code:        FR

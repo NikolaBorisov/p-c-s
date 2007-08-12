@@ -1,0 +1,28 @@
+<%= form_tag(:id => params[:id], :task_id => params[:task_id]) %>
+<fieldset>
+    <legend>Add Task Module Action</legend>
+    <p>
+        <%= error_messages_for(:contest_module) %>
+    </p>
+    <p>
+        <%= show_info %>
+    </p>
+    <p>
+        <label for="contest_module">Select Module</label>
+        <%= select(:contest_module, :module_id, @task.modules.collect { |m| [m.name, m.id] } ) %>
+    </p>
+    <p>
+        <label for="contest_module">Select Action</label>
+        <%= select(:contest_module, :action, @actions) %>
+    </p>
+    <p>
+        <label for="contest_module">Select Program Language</label>
+        <%= select(:contest_module, :program_language_id, @program_languages.collect { |pl| [pl.name, pl.id] }) %>
+    </p>
+    <p>
+        <%= hidden_field(:contest_module, :contest_id, :value => params[:id]) %>
+        <%= hidden_field(:contest_module, :task_id, :value => params[:task_id]) %>
+        <%= submit_tag "Add Task Module Action" %>
+    </p>
+</fieldset>
+<%= end_form_tag %>
