@@ -33,6 +33,7 @@ module PCS
         @grader_config = grader_config
         
         create_directories()
+        clear_directories()
 
         @logger = Logger.new(grader_config.logger_filepath, grader_config.logger_shift_age, grader_config.logger_shift_size)
         @logger.level = grader_config.logging_level
