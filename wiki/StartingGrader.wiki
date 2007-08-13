@@ -1,5 +1,5 @@
+#summary how to set up and start the Grader.
 #labels Phase-Deploy
-#how to set up and start the Grader.
 
 = Introduction =
 
