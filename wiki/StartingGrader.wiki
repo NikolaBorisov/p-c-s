@@ -9,26 +9,29 @@ This page will help you to set up and run a Grader. The process right now is too
 = Requirements =
 
   * Unix system
-  * Copy of the source code of the Grader. It would be better if you can just download it from the svn. 'svn co http://p-c-s.googlecode.com/svn/trunk/dev/grader/' is all you need.
+  * Copy of the source code of the Grader. It would be better if you can just download it from the svn. `svn co http://p-c-s.googlecode.com/svn/trunk/dev/grader/` is all you need.
   * SSH has to be enabled (it is used to copy files from the Storage)
 
 = Setup =
 
   # Compile the C extension.
-    'cd grader/pcs/ext/'
-    'ruby extconf.rb'
-    'make'
+    {{{
+    cd grader/pcs/ext/
+    ruby extconf.rb
+    make
+    }}}
 
-  # Edit the configuration file 'config.rb'. You should change the content of the following lines to match you configuration. In production mode the grader will need a user with low privileges that will be used to execute the solutions. For testing purpose you can put your own user:
+  # Edit the configuration file `config.rb`. You should change the content of the following lines to match you configuration. In production mode the grader will need a user with low privileges that will be used to execute the solutions. For testing purpose you can put your own user:
 
-'grader.execute_uid = 1000
+{{{
+grader.execute_uid = 1000
 grader.user = "borisof"
 grader.grader_address = "127.0.0.1"
-grader.grader_ssh_port = "22"'
+grader.grader_ssh_port = "22"
+}}}
   
-  # Follow this mini HOWTO to set up 'scp' to work without password.
+  # Follow this mini HOWTO to set up `scp` to work without password.
 [http://www.cs.umd.edu/~arun/misc/ssh.html]
 
-  # Start the Grader by 'ruby start_grader.rb'
-
+  # Start the Grader by `ruby start_grader.rb`
 
