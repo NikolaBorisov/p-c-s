@@ -1,0 +1,23 @@
+#summary How to start the Storage Server
+#labels Phase-Deploy,Storage
+
+= Introduction =
+
+This page gives details how to start the storage server.
+
+
+= Requirements =
+
+  * svn or copy of the source code for the Storage
+  * access to the Database
+  * scp setup to copy files to remote computers (Graders) without password. (see [StartingGrader])
+  * Unix based OS
+  * Ruby 1.8
+
+= Steps =
+
+  # Checkout the source code {{{svn co http://p-c-s.googlecode.com/svn/trunk/dev/storage/}}}
+  # Edit the config file to configure the location of the Database and other stuff.
+  # {{{ruby start_storage.rb}}}
+
+
