@@ -13,6 +13,7 @@ server.app_name = 'Grader'
 server.namespace = 'urn:PCS/Grader'
 server.address = '0.0.0.0'
 server.port = 5000
+# This logging level is for the web service server.
 server.logging_level = Logger::INFO
 
 
@@ -32,7 +33,10 @@ storage.sleep_on_retry = 0.5
 #
 #grader.grader_root = '/var/grader'
 grader.execute_uid = 1001
+# This is the username of the user that will be used when execution source and copying files.
 grader.user = 'contest'
+# The next two lines are the server-name and the port number where the ssh server responds
+# This information is give to the Storage so that the storage can copy the files
 grader.grader_address = 'judge.openfmi.net'
 grader.grader_ssh_port = '2200'
 grader.logger_shift_age = 5
