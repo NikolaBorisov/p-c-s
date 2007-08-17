@@ -1,0 +1,36 @@
+#summary How to set up you computer so that you can do development.
+#labels Phase-Deploy,ALL
+
+= Introduction =
+
+This page will go over the basic staff that you need to setup before starting to develop the  PCS. Here we will show one way to prepare your machine. Feel free to use other software according to your preference.
+
+= Eclipse =
+
+One very good IDE to use if you want to develop code for PCS is Eclipse. You can always use a basic Eclipse and install additional plugins for Ruby and Ruby on Rails. A better solution is EasyEclipse a modified version of eclipse with pre-installed plugins. So you can download the EasyEclipse specified in Ruby development from [here].
+
+= Subversion =
+
+The PCS code is stored in a SVN. If you have never used source version control system please take some time to familiarize youself with SVN. There is a subversion client for Eclipse named Subclipse [http://subclipse.tigris.org/]. Please follow the installation instructions [http://subclipse.tigris.org/install.html] to install Subclipse in your Eclipse.
+
+= Checkout The Project Tree =
+
+After you have installed the Subclipse plugin, you should do:
+
+  * File -> Import
+  * Import Project from SVN
+  * enter the following url https://p-c-s.googlecode.com/svn/
+  * When prompted enter you password for code.google.com (not for your gmail) [http://code.google.com/hosting/settings]
+  * Use the new project wizard and select simple project.
+
+= MYSQL =
+
+You also need to install MYSQL on your computer or use it from another computer. To do this you should be familiar first with Rails.
+
+= Conclusion =
+
+This should be everything you need to setup you environment.
+
+= Problems? =
+
+Please report problem and add your own experience and suggestions to this page.
