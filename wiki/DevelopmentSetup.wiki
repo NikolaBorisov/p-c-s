@@ -21,7 +21,7 @@ After you have installed the Subclipse plugin, you should do:
   * Import Project from SVN
   * enter the following url https://p-c-s.googlecode.com/svn/
   * When prompted enter you password for code.google.com (not for your gmail) [http://code.google.com/hosting/settings]
-  * Use the new project wizard and select simple project.
+  * Use the new project wizard and select Ruby project.
 
 = MYSQL =
 
