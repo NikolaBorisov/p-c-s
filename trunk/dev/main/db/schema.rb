@@ -185,7 +185,7 @@ ActiveRecord::Schema.define(:version => 1) do
   create_table "grader_responses", :id => false, :force => true do |t|
     t.column "grader_response_id",            :integer,                 :null => false
     t.column "submit_id",                     :integer,                 :null => false
-    t.column "module_id",                     :integer,                 :null => false
+    t.column "module_id",                     :integer
     t.column "checker_id",                    :integer,                 :null => false
     t.column "solution_compiler_response_id", :integer,                 :null => false
     t.column "checker_compiler_response_id",  :integer,                 :null => false
