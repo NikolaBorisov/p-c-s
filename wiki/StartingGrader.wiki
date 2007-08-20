@@ -18,6 +18,12 @@ This page will help you to set up and run a Grader. The process right now is too
 {{{
 cd grader/pcs/ext/
 ruby extconf.rb
+#
+# If your distribution is based on Debian you may get the following error here:
+# extconf.rb:1:in `require': no such file to load -- mkmf (LoadError)
+#        from extconf.rb:1
+# All you need to do is to install the pakage ruby<ruby version>-dev (ex. ruby1.8-dev for ruby version 1.8.*)
+#
 make
 }}}
 
@@ -34,3 +40,6 @@ grader.grader_ssh_port = "22"
    [http://www.cs.umd.edu/~arun/misc/ssh.html]
 
   4. Start the Grader by `ruby start_grader.rb`
+
+
+
