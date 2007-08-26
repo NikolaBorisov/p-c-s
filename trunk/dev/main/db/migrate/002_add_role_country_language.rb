@@ -3,6 +3,7 @@ class AddRoleCountryLanguage < ActiveRecord::Migration
     PCS::Model::Language.create(:name => "English", :code => "EN")
     PCS::Model::Country.create(:name => "Bulgaria")
     PCS::Model::Role.create(:name => "contestant")
+    PCS::Model::Role.create(:name => "admin")
   end
 
   def self.down
