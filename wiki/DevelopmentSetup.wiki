@@ -5,6 +5,18 @@
 
 This page will go over the basic staff that you need to setup before starting to develop the  PCS. Here we will show one way to prepare your machine. Feel free to use other software according to your preference.
 
+= Ruby and Rails =
+
+You will need ruby1.8 and rails 1.2.2. The way to install them in Ubuntu is
+{{{
+sudo apt-get install ruby gem ri rdoc
+}}}
+Then to install the correct version of rails do:
+{{{
+sudo gem install rails -v 1.2.2
+}}}
+
+
 = Eclipse =
 
 One very good IDE to use if you want to develop code for PCS is Eclipse. You can always use a basic Eclipse and install additional plugins for Ruby and Ruby on Rails. A better solution is EasyEclipse a modified version of eclipse with pre-installed plugins. So you can download the EasyEclipse specified in Ruby development from [here].
