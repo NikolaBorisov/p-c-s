@@ -7,13 +7,13 @@ This page will go over the basic staff that you need to setup before starting to
 
 = Ruby and Rails =
 
-You will need ruby1.8 and rails 1.2.2. The way to install them in Ubuntu is
+You will need ruby1.8 and rails 1.2.3. The way to install them in Ubuntu is
 {{{
-sudo apt-get install ruby gem ri rdoc
+sudo apt-get install ruby gem ri rdoc rake ruby1.8-dev libyaml-ruby libzlib-ruby
 }}}
 Then to install the correct version of rails do:
 {{{
-sudo gem install rails -v 1.2.2
+sudo gem install rails -v 1.2.3
 }}}
 
 
@@ -37,7 +37,23 @@ After you have installed the Subclipse plugin, you should do:
 
 = MYSQL =
 
-You also need to install MYSQL on your computer or use it from another computer. To do this you should be familiar first with Rails.
+You also need to install MYSQL on your computer or use it from another computer. To do this you should be familiar first with Rails. After a row installation of Mysql run the following
+{{{
+mysql -u root -p
+}}}
+now load the sql script that creates an user and databases. The script is located in the source tree.
+{{{
+source dev/main/db/create_user_db.sql
+}}}
+If you install first Rails then it doesn't know where is the mysql socket so run the following to make Rails happy.
+{{{
+sudo ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock
+}}}
+Now we have to migrate the the DB to the latest version. Execute the following in the root of the Rails project (dev/main)
+{{{
+rake db:migrate
+}}}
+Please make yourself familiar with the Rails migration infrastructure.
 
 = Conclusion =
 
