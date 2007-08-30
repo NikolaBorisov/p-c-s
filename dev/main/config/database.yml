@@ -15,8 +15,8 @@ development:
   database: pcs
   username: pcs
   password: 1234
-  host: judge.openfmi.net
-  port: 3307
+  host: localhost
+  port: 3306
 
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
@@ -26,13 +26,13 @@ test:
   database: pcs_test
   username: pcs
   password: 1234
-  host: judge.openfmi.net
-  port: 3307
+  host: localhost
+  port: 3306
 
 production:
   adapter: mysql
   database: pcs_production
   username: pcs
   password: 1234
-  host: judge.openfmi.net
-  port: 3307
+  host: localhost
+  port: 3306
