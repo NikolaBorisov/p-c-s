@@ -15,7 +15,7 @@
         <label for="contest">Contest Title</label>
         <%= text_field(:contest,:title) %>
     </p>
-    <p>
+<!--    <p>
         <label for="contest">Start Time</label>
         <%= datetime_select(:contest,:start_time) %>
     </p>
@@ -23,6 +23,7 @@
         <label for="contest">End Time</label>
         <%= datetime_select(:contest,:end_time) %>
     </p>
+-->
     <p>
         <label for="contest">Contest Type</label>
         <%= select(:contest, :contest_type_id, @contest_types.collect { |ct| [ct.name, ct.id] } ) %>
@@ -30,9 +31,9 @@
     <p>
         <label for="contest">Board Type</label>
         <%= select(:contest, :board_type_id, @board_types.collect { |bt| [bt.name, bt.id] } ) %>
-    </p>    
+    </p>
     <p>
         <%= submit_tag "Create Contest" %>
-    </p>     
+    </p>
 </fieldset>
 <%= end_form_tag %>
