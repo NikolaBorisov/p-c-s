@@ -3,6 +3,7 @@
         <td>ID</td>
         <td>Name</td>
         <td>Title</td>
+        <td>Status</td>
         <td>Type</td>
         <td>Board Type</td>
         <td>Actions</td>
@@ -12,11 +13,17 @@
         <td><%= contest.id %></td>
         <td><%= contest.name %></td>
         <td><%= contest.title %></td>
+        <td><%= contest.status %></td>
         <td><%= contest.contest_type.name %></td>
         <td><%= contest.board_type.name %></td>
         <td>
             <%= link_to('edit', :action => 'edit', :id => contest.id) %>
             <%= link_to('delete', :action => 'delete', :id => contest.id) %>
+            <% if contest.status == PCS::Model::Contest::STOPPED %>
+            	<%= link_to('start', :action => 'start', :id => contest.id) %>
+            <% else %>
+            	<%= link_to('stop', :action => 'stop', :id => contest.id) %>
+            <% end %>
         </td>
     </tr>
 <% end %>
