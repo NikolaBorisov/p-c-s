@@ -4,17 +4,27 @@ class AddAdminUser < ActiveRecord::Migration
     user = PCS::Model::User.new
     user.country = PCS::Model::Country.find(:first)
     user.username = "admin"
-    user.password = Digest::SHA1.hexdigest('admin')
+    user.first_name = "Administrator"
+    user.last_name = "Administrator"
+    user.city = "Sofia"
+    user.email = "admin@admin.com"
+    user.text_password = "123456"
+    user.text_password_confirmation = "123456"
     user.roles << PCS::Model::Role.find_by_name("admin")
-    user.save
+    user.save!
 
     # Creating contestant user with password 'user'
     user = PCS::Model::User.new
     user.country = PCS::Model::Country.find(:first)
     user.username = "user"
-    user.password = Digest::SHA1.hexdigest('user')
-    user.roles << PCS::Model::Role.find_by_name("admin")
-    user.save
+    user.first_name = "Nikola"
+    user.last_name = "Borisov"
+    user.city = "Sofia"
+    user.email = "nikola@borisov.com"
+    user.text_password = "123456"
+    user.text_password_confirmation = "123456"
+    user.roles << PCS::Model::Role.find_by_name("contestant")
+    user.save!
   end
 
   def self.down
