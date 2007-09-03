@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 5) do
+ActiveRecord::Schema.define(:version => 6) do
 
   create_table "article_contents", :id => false, :force => true do |t|
     t.column "article_content_id", :integer,                 :null => false
@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(:version => 5) do
     t.column "contest_type_id", :integer,                                  :null => false
     t.column "is_private",      :boolean,                                  :null => false
     t.column "owner_id",        :integer,                                  :null => false
+    t.column "status",          :string
   end
 
   add_index "contests", ["board_type_id"], :name => "FK_contests_board_types"
