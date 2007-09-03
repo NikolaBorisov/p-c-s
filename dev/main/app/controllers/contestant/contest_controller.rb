@@ -1,21 +1,21 @@
 class Contestant::ContestController < ApplicationController
-  
+
   before_filter :authorize
-  
+
   def list
-    @allowed_contests = PCS::Model::Contest.find(:all)
+    @allowed_contests = PCS::Model::Contest.find(:all, :conditions => "status = '#{PCS::Model::Contest::RUNNING}'")
   end
-  
+
   def index
     if (params[:id].nil?)
       redirect_to(:action => "list")
     end
     @contest = PCS::Model::Contest.find(params[:id])
   end
-  
+
   def enter
   end
-  
+
   def show_task
     @task = PCS::Model::Task.find(params[:task_id])
     @restriction = PCS::Model::ContestTask.find(:first, :conditions => ["contest_id = ? AND task_id = ?", params[:id], params[:task_id]]).restriction
@@ -26,15 +26,15 @@ class Contestant::ContestController < ApplicationController
       @content_text = @content.content
     end
   end
-  
+
   def list_tasks
     @contest = PCS::Model::Contest.find(params[:id])
   end
-  
+
   def submit
     @contest = PCS::Model::Contest.find(params[:id])
   end
-  
+
   def list_submits
     # Selects all submits for this user, and contest
     @submits = PCS::Model::Submit.find(:all,
@@ -42,14 +42,14 @@ class Contestant::ContestController < ApplicationController
                                        session[:user_id],
                                        params[:id]])
   end
-  
+
   def list_submit_responses
     @grader_responses = PCS::Model::GraderResponse.find(:all,
                                                         :conditions => ["submit_id = ?", params[:submit_id]])
   end
-  
+
   def process_submit
-    file = PCS::Model::File.save_file(params["submit"]["file"])    
+    file = PCS::Model::File.save_file(params["submit"]["file"])
     submit = PCS::Model::Submit.new
     submit.user_id = session[:user_id]
     submit.task_id = params["submit"]["task_id"]
@@ -66,8 +66,8 @@ class Contestant::ContestController < ApplicationController
       redirect_message(:action => "submit", :id => params[:id])
     end
   end
-  
+
   private
-  
-  
+
+
 end
