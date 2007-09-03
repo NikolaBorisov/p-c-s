@@ -15,9 +15,10 @@ class Admin::Contest::ContestController < ApplicationController
     if (request.post?)
       @contest = PCS::Model::Contest.new(params[:contest])
 
-      @contest.duration = @contest.end_time - @contest.start_time
+#      @contest.duration = @contest.end_time - @contest.start_time
       @contest.owner_id = session[:user_id]
-      @contest.is_private = true
+      # FIXME: Implement real registration system.
+      @contest.is_private = false
       if (@contest.save)
         info("Contest Created Succesfully.", "info")
         redirect_message(:action => "list")
