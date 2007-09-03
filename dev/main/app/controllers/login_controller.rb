@@ -1,8 +1,8 @@
 class LoginController < ApplicationController
 
-  before_filter :authorize, :except => [:login, :signup, :register]
+  before_filter :authorize, :except => [:login, :logout, :signup, :register]
   # Post 0.1
-#  before_filter :authorize_admin, :only => [:admin]
+  before_filter :authorize_admin, :only => [:admin]
 
   # Cheching the username-password combination on login
   def signup
@@ -22,14 +22,13 @@ class LoginController < ApplicationController
   end
 
   def login
+    session_cleanup
     @user = PCS::Model::User.new
   end
 
   # Cleaning up the session
   def logout
-    session[:user_id] = nil
-    roles =  PCS::Model::Role.find(:all)
-    roles.each {|r| session[r.name.to_sym] = nil }
+    session_cleanup
   end
 
   def register
@@ -49,11 +48,18 @@ class LoginController < ApplicationController
     @roles = PCS::Model::Role.find(:all)
   end
 
-#  def admin
-#  end
+  def admin
+  end
 
   def contestant
   end
 
+
+  private
+  def session_cleanup
+    session[:user_id] = nil
+    roles =  PCS::Model::Role.find(:all)
+    roles.each {|r| session[r.name.to_sym] = nil }
+  end
 
 end
