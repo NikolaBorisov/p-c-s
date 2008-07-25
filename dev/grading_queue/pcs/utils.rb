@@ -1,18 +1,21 @@
 module PCS
-  
-  
+
+
   #
   # A utiliti class. Place here common functions.
   #
   class Utils
-    
+
+    #
+    # Returns a corresponding to the given file_id.
+    #
     def self.fileid2name(file_id)
       return format("file%08d", file_id)
     end
-    
+
     #
     # Creates directory if it doesn't already exists. If a file with that name exists an
-    # exception is raised
+    # exception is raised.
     #
     def self.create_directory(directory)
       if File.exist?(directory)
@@ -20,26 +23,33 @@ module PCS
           raise "Cannot create #{directory}. File with that name exists"
         end
       else
-        Dir.mkdir(directory)          
+        Dir.mkdir(directory)
       end
     end
-    
-    
+
+    #
+    # Creates a directory on a remote server using ssh and changes to that directory.
+    #
     def self.create_remote_directory(server, directory)
       cmd_line = "ssh #{server} mkdir #{directory}"
       result = system(cmd_line)
       cmd_line = "ssh #{server} cd #{directory}"
       result = system cmd_line
-      
+
       raise "Cannot create #{server}: #{directory}" unless result
     end
-    
-    
+
+    #
+    # Clears a directory by removing all of its contents.
+    #
     def self.clear_directory(directory)
-      FileUtils.rm(File.join(directory,Dir.glob('*')), :force=>true)
+      filelist=Dir.entries(directory)
+      filelist.delete_if { |filename| filename=='.' or filename=='..' }
+      filelist.map! { |filename| File.join(directory,filename) }
+      FileUtils.rm_rf(filelist)
     end
   end
-  
-  
-  
+
+
+
 end
