@@ -1,6 +1,6 @@
 #
 # Configuration options
-# 
+#
 
 require 'logger'
 
@@ -16,8 +16,8 @@ server.logging_level = Logger::INFO
 
 storage.db_settings = {
   :adapter  => 'mysql',
-  :host     => 'judge.openfmi.net',
-  :port     => '3307',
+  :host     => 'acm.cs.northwestern.edu',
+  :port     => '3306',
   :database => 'pcs',
   :username => 'pcs',
   :password => '1234'
@@ -26,7 +26,7 @@ storage.db_settings = {
 # Specify the server and the machine where the FileServer runs. Leave '' if running on this machine
 storage.file_server_location = ''
 # Storage Retry Settings
-storage.times_to_retry = 5 
+storage.times_to_retry = 5
 storage.sleep_on_retry = 0.5   # sek
 
 # Storage Logger Settings

@@ -1,6 +1,6 @@
 #
 # Configuration options
-# 
+#
 
 require 'logger'
 
@@ -16,15 +16,15 @@ server.logging_level = Logger::INFO
 
 queue.db_settings = {
   :adapter  => 'mysql',
-  :host     => 'judge.openfmi.net',
-  :port     => '3307',
+  :host     => 'acm.cs.northwestern.edu',
+  :port     => '3306',
   :database => 'pcs',
   :username => 'pcs',
   :password => '1234'
 }
 
 # GradingQueue Retry Settings
-queue.times_to_retry = 5 
+queue.times_to_retry = 5
 queue.sleep_on_retry = 0.5   # sek
 
 # GradingQueue Logger Settings
