@@ -25,6 +25,7 @@ storage.db_settings = {
 
 # Specify the server and the machine where the FileServer runs. Leave '' if running on this machine
 storage.file_server_location = ''
+storage.storage_root = '/home/contest/storage'
 # Storage Retry Settings
 storage.times_to_retry = 5
 storage.sleep_on_retry = 0.5   # sek
