@@ -9,7 +9,7 @@ This page will go over the basic staff that you need to setup before starting to
 
 You will need ruby1.8 and rails 1.2.3. The way to install them in Ubuntu is
 {{{
-sudo apt-get install ruby gem ri rdoc rake ruby1.8-dev libyaml-ruby libzlib-ruby
+sudo apt-get install ruby rubygems ri rdoc rake ruby1.8-dev libyaml-ruby libzlib-ruby
 }}}
 Then to install the correct version of rails do:
 {{{
