@@ -32,4 +32,4 @@ queue.logger_shift_age = 5
 queue.logger_shift_size = 10 * 1024
 queue.logging_level = Logger::INFO
 queue.logger_datetime_format = '%Y.%m.%d %H:%M:%S'
-
+queue.grading_queue_root = '/home/contest/grading_queue'
