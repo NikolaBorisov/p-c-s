@@ -7,7 +7,7 @@ module PCS
   class Utils
 
     #
-    # Returns a corresponding to the given file_id.
+    # Returns the filename corresponding to the given file_id.
     #
     def self.fileid2name(file_id)
       return format("file%08d", file_id)
@@ -41,13 +41,14 @@ module PCS
 
     #
     # Clears a directory by removing all of its contents.
+    # If the folder has subfolders, they are NOT cleared and deleted.
     #
-    def self.clear_directory(directory)
+   def self.clear_directory(directory)
       filelist=Dir.entries(directory)
-      filelist.delete_if { |filename| filename=='.' or filename=='..' }
       filelist.map! { |filename| File.join(directory,filename) }
-      FileUtils.rm_rf(filelist)
+      FileUtils.rm_f(filelist)
     end
+
   end
 
 
