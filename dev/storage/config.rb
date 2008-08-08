@@ -16,7 +16,7 @@ server.logging_level = Logger::INFO
 
 storage.db_settings = {
   :adapter  => 'mysql',
-  :host     => 'acm.cs.northwestern.edu',
+  :host     => 'localhost',
   :port     => '3306',
   :database => 'pcs',
   :username => 'pcs',
