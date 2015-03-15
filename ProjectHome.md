@@ -1,0 +1,1 @@
+Programming Contest System aims at building an open-source system that can be used in organizing programming contest like IOI.
